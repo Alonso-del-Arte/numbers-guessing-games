@@ -29,8 +29,6 @@ import algebraics.quadratics.QuadraticInteger;
 import algebraics.quadratics.QuadraticRing;
 import algebraics.quadratics.RealQuadraticInteger;
 import algebraics.quadratics.RealQuadraticRing;
-import algebraics.quartics.Zeta8Integer;
-import algebraics.quartics.Zeta8Ring;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -134,12 +132,6 @@ public class NumberTheoreticFunctionsCalculator {
      * <b>Z</b>[&phi;].
      */
     public static final RealQuadraticInteger GOLDEN_RATIO = new RealQuadraticInteger(1, 1, RING_ZPHI, 2);
-
-    /**
-     * The number &zeta;<sub>8</sub> = (&radic;2)/2 + (&radic;&minus;2)/2,
-     * principal square root of the imaginary unit <i>i</i>.
-     */
-    public static final Zeta8Integer ZETA_8 = new Zeta8Integer(0, 1, 0, 0);
 
     /**
      * Determines the prime factors of a given number. Uses simple trial
@@ -1292,9 +1284,6 @@ public class NumberTheoreticFunctionsCalculator {
                 return potentialUnit;
             }
         }
-        if (ring instanceof Zeta8Ring) {
-            return ZETA_8;
-        }
         if (ring == null) {
             String excMsg = "Null ring has no fundamental unit";
             throw new NullPointerException(excMsg);
@@ -1434,9 +1423,6 @@ public class NumberTheoreticFunctionsCalculator {
                 return new RealQuadraticInteger(1, 0, r);
             }
         }
-        if (ring instanceof Zeta8Ring) {
-            return new Zeta8Integer(1, 0, 0, 0);
-        }
         if (ring == null) {
             String excMsg = "Null ring does not contain the number 1";
             throw new NullPointerException(excMsg);
@@ -1507,9 +1493,6 @@ public class NumberTheoreticFunctionsCalculator {
                 interNum = sumMult * kronSum;
                 return (int) Math.round(interNum);
             }
-        }
-        if (ring instanceof Zeta8Ring) {
-            return 1;
         }
         if (ring == null) {
             String excMsg = "Null ring does not have class number";
