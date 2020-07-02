@@ -17,7 +17,6 @@
 package algebraics.quadratics;
 
 import algebraics.IntegerRing;
-import algebraics.PowerBasis;
 import fractions.Fraction;
 import calculators.NumberTheoreticFunctionsCalculator;
 
@@ -148,13 +147,6 @@ public abstract class QuadraticRing implements IntegerRing {
         } else {
             return 4 * this.radicand;
         }
-    }
-
-    @Override
-    public PowerBasis getPowerBasis() {
-        Fraction oneFract = new Fraction(1);
-        Fraction[] fracts = {oneFract, oneFract};
-        return new PowerBasis(fracts);
     }
 
     /**
