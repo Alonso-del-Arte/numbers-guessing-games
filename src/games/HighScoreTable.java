@@ -17,38 +17,26 @@
  */
 package games;
 
-import java.util.Scanner;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
  * @author Alonso del Arte
  */
-public abstract class GameWithLeaderBoard {
+public class HighScoreTable implements Serializable {
 
-    abstract long gameID();
+    private static final long serialVersionUID = 4549602407897643827L;
 
-    boolean levelApplicable() {
-        return false;
+    private final ArrayList<HighScoreTableRecord> records = new ArrayList<>();
+
+    public void addHighScore(HighScoreTableRecord score) {
+        this.records.add(score);
     }
 
-    static void greetUser() {
-        System.out.println();
-        System.out.println("Number Guessing Game");
-        System.out.println();
-        System.out.print("Please enter your name for the high scores board: ");
-    }
-
-    static String getUserName(Scanner input) {
-        return input.nextLine();
-    }
-
-    abstract void playRound();
-
-    static boolean askToPlayAgain(Scanner input) {
-        System.out.println();
-        System.out.print("Play again? ");
-        String answer = input.nextLine();
-        return answer.toLowerCase().startsWith("y");
+    public ArrayList<HighScoreTableRecord> getRecords() {
+        return new ArrayList<>(this.records);
     }
 
 }

@@ -17,15 +17,18 @@
 package fractions;
 
 import calculators.NumberTheoreticFunctionsCalculator;
-import games.playingcards.Suit;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import javax.naming.InvalidNameException;
+import javax.naming.ldap.Rdn;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
@@ -397,8 +400,12 @@ public class FractionTest {
         transitiveHold = new Fraction(1, 3);
         assertTrue(tempHold.equals(transitiveHold));
         assertTrue(transitiveHold.equals(tempHold));
-        Suit obj = Suit.SPADES;
-        assertNotEquals(operandA, obj);
+        try {
+            Rdn obj = new Rdn("OU=Sales+CN=J.Lopez");
+            assertNotEquals(operandA, obj);
+        } catch (InvalidNameException ine) {
+            fail(ine.getMessage());
+        }
     }
 
     /**

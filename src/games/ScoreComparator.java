@@ -17,38 +17,18 @@
  */
 package games;
 
-import java.util.Scanner;
+import java.util.Comparator;
 
 /**
  *
  * @author Alonso del Arte
  */
-public abstract class GameWithLeaderBoard {
+public class ScoreComparator implements Comparator<HighScoreTableRecord> {
 
-    abstract long gameID();
-
-    boolean levelApplicable() {
-        return false;
-    }
-
-    static void greetUser() {
-        System.out.println();
-        System.out.println("Number Guessing Game");
-        System.out.println();
-        System.out.print("Please enter your name for the high scores board: ");
-    }
-
-    static String getUserName(Scanner input) {
-        return input.nextLine();
-    }
-
-    abstract void playRound();
-
-    static boolean askToPlayAgain(Scanner input) {
-        System.out.println();
-        System.out.print("Play again? ");
-        String answer = input.nextLine();
-        return answer.toLowerCase().startsWith("y");
+    // STUB TO FAIL THE FIRST TEST
+    @Override
+    public int compare(HighScoreTableRecord record1, HighScoreTableRecord record2) {
+        return 0;
     }
 
 }
